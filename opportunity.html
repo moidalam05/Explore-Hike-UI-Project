@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="./main/style.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<style>
+		/* Optional: Custom scroll bar styling */
+		.scrollbar-hide::-webkit-scrollbar {
+			display: none;
+		}
+
+		.scrollbar-hide {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
+	</style>
+	<body>
+		
+		<!-- Navbar -->
+		<nav
+			class="px-3 md:px-16 w-full py-3 fixed flex justify-between items-center bg-[#f6f3f7] z-10"
+		>
+			<a
+				href="#"
+				id="brand"
+				class="flex gap-2 items-center flex-1"
+			>
+				<!-- <img
+                class="object-cover max-w-12 max-h-12"
+                src="./assets/asset 0.png"
+                alt="brand-logo"
+            /> -->
+				<span class="text-lg font-medium font-primary"
+					>EXPLOREHIKE</span
+				>
+			</a>
+
+			<div
+				id="nav-menu"
+				class="hidden lg:flex gap-12"
+			>
+				<a
+					href="./index.html"
+					class="font-medium hover:text-primary"
+					>Home</a
+				>
+				<a
+					href="./explore.html"
+					class="font-medium hover:text-primary"
+					>Xplore</a
+				>
+				<a
+					href="./spikeExam.html"
+					class="font-medium hover:text-primary"
+					>Spike Exams</a
+				>
+				<a
+					href="./post.html"
+					class="font-medium hover:text-primary"
+					>Post</a
+				>
+				<a
+					href="./opportunity.html"
+					class="font-medium hover:text-primary"
+					>Opportunities</a
+				>
+				<a
+					href="./about.html"
+					class="font-medium hover:text-primary"
+					>About ExploreHike</a
+				>
+				<a
+					href="#"
+					class="font-medium hover:text-primary"
+					>Register</a
+				>
+			</div>
+			<div class="flex-1 hidden lg:flex justify-end">
+				<button
+					class="flex gap-2 items-center border border-gray-400 px-6 py-2 rounded-lg hover:border-gray-600"
+				>
+					<!-- <img
+                    src="./assets/asset 1.svg"
+                    alt=""
+                /> -->
+					<span class="font-medium">Employer Post</span>
+					<i class="fa-solid fa-arrow-right"></i>
+				</button>
+			</div>
+
+			<button
+				class="p-2 lg:hidden"
+				onclick="handleMenu()"
+			>
+				<i class="fa-solid fa-bars text-gray-600"></i>
+			</button>
+
+			<div
+				id="nav-dialog"
+				class="hidden fixed z-10 md:hidden bg-white inset-0 p-3"
+			>
+				<div
+					id="nav-bar"
+					class="flex justify-between"
+				>
+					<a
+						href="#"
+						id="brand"
+						class="flex gap-2 items-center"
+					>
+						<!-- <img
+                        class="object-cover max-w-12 max-h-12"
+                        src="./assets/asset 0.png"
+                        alt="brand-logo"
+                    /> -->
+						<span class="text-lg font-medium font-primary"
+							>ToDesktop</span
+						>
+					</a>
+					<button
+						class="p-2 md:hidden"
+						onclick="handleMenu()"
+					>
+						<i class="fa-solid fa-xmark text-gray-600"></i>
+					</button>
+				</div>
+				<div class="mt-6">
+					<a
+						href="#"
+						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
+						>Home</a
+					>
+					<a
+						href="#"
+						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
+						>Pricing</a
+					>
+					<a
+						href="#"
+						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
+						>Docs</a
+					>
+					<a
+						href="#"
+						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
+						>Changelog</a
+					>
+					<a
+						href="#"
+						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
+						>Blogs</a
+					>
+					<a
+						href="#"
+						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
+						>Login</a
+					>
+				</div>
+				<div class="h-[1px] bg-gray-400"></div>
+				<button
+					class="w-full mt-6 flex gap-2 items-center px-6 py-3 rounded-lg hover:bg-gray-100"
+				>
+					<span class="font-medium">Electron Developers</span>
+				</button>
+			</div>
+		</nav>
+		<!-- Navbar End Here -->
+
+		<!-- Opportunities sections -->
+		<section
+			id="opportunity"
+			class="w-full md:px-16 pt-28"
+		>
+			<div class="container mx-auto">
+				<h1 class="text-center text-4xl font-bold">
+					ONGOING ACTIVITIES
+				</h1>
+				<p class="text-center text-lg font-semibold mt-3 mb-10">
+					FIELD-BUSSINESS
+				</p>
+				<div class="relative flex justify-center items-center">
+					<!-- <div id="prev absolute right-0 z-10 p-2 bg-gray-800 text-white rounded-full">
+                        <i class="fa-solid fa-arrow-right absolute right-0 z-10 p-2 bg-gray-800 text-white rounded-full"></i>
+                    </div>
+
+                    <div id="next">
+                        <i class="fa-solid fa-arrow-left absolute left-0 z-10 p-2 bg-gray-800 text-white rounded-full"></i>
+                    </div> -->
+					<div
+						id="scrollContainer"
+						class="flex overflow-x-scroll pb-16 scrollbar-hide gap-10"
+					>
+						<!-- Card 1 -->
+						<div
+							class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
+						>
+							<img
+								class="rounded-md"
+								src="./images/bg.jpg"
+								alt=""
+							/>
+							<h2 class="text-3xl uppercase font-semibold my-4">
+								Conard challenge
+							</h2>
+							<p class="text-sm text-justify tracking-tight">
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Veniam deserunt quos nihil ut
+								tenetur temporibus voluptatibus fugiat eaque,
+								deleniti expedita?
+							</p>
+							<p class="uppercase text-center mt-6 font-semibold">
+								free
+							</p>
+							<div class="flex justify-center mt-4">
+								<a
+									class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
+									href="#"
+									>APPLY</a
+								>
+							</div>
+						</div>
+						<!-- Card 2 -->
+						<div
+							class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
+						>
+							<img
+								class="rounded-md"
+								src="./images/bg.jpg"
+								alt=""
+							/>
+							<h2 class="text-3xl uppercase font-semibold my-4">
+								Conard challenge
+							</h2>
+							<p class="text-sm text-justify tracking-tight">
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Veniam deserunt quos nihil ut
+								tenetur temporibus voluptatibus fugiat eaque,
+								deleniti expedita?
+							</p>
+							<p class="uppercase text-center mt-6 font-semibold">
+								free
+							</p>
+							<div class="flex justify-center mt-4">
+								<a
+									class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
+									href="#"
+									>APPLY</a
+								>
+							</div>
+						</div>
+						<!-- Card 3 -->
+						<div
+							class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
+						>
+							<img
+								class="rounded-md"
+								src="./images/bg.jpg"
+								alt=""
+							/>
+							<h2 class="text-3xl uppercase font-semibold my-4">
+								Conard challenge
+							</h2>
+							<p class="text-sm text-justify tracking-tight">
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Veniam deserunt quos nihil ut
+								tenetur temporibus voluptatibus fugiat eaque,
+								deleniti expedita?
+							</p>
+							<p class="uppercase text-center mt-6 font-semibold">
+								free
+							</p>
+							<div class="flex justify-center mt-4">
+								<a
+									class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
+									href="#"
+									>APPLY</a
+								>
+							</div>
+						</div>
+						<!-- Add more cards as needed -->
+						<div
+							class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
+						>
+							<img
+								class="rounded-md"
+								src="./images/bg.jpg"
+								alt=""
+							/>
+							<h2 class="text-3xl uppercase font-semibold my-4">
+								Conard challenge
+							</h2>
+							<p class="text-sm text-justify tracking-tight">
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Veniam deserunt quos nihil ut
+								tenetur temporibus voluptatibus fugiat eaque,
+								deleniti expedita?
+							</p>
+							<p class="uppercase text-center mt-6 font-semibold">
+								free
+							</p>
+							<div class="flex justify-center mt-4">
+								<a
+									class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
+									href="#"
+									>APPLY</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- footer section -->
+		<footer
+			id="footer"
+			class="bg-gray-800 text-white w-full md:px-16 py-16"
+		>
+			<div class="container mx-auto">
+				<div class="md:flex md:justify-between">
+					<!-- Company Info -->
+					<div class="mb-8 md:mb-0 md:w-[50%]">
+						<h2
+							class="text-2xl font-bold mb-4 text-center md:text-left"
+						>
+							EXPLOREHIKE
+						</h2>
+						<p
+							class="text-gray-400 text-center md:text-left px-2 md:px-0"
+						>
+							Lorem, ipsum dolor sit amet consectetur adipisicing
+							elit. Est, optio. Nobis illo adipisci debitis
+							laudantium dolorum dolores, inventore tenetur
+							dignissimos dolorem deserunt fuga earum iure
+							pariatur animi ad incidunt quidem corporis voluptas
+							perspiciatis eos. Esse saepe, obcaecati ipsam sint
+							quis aliquid! Sed porro voluptatibus pariatur
+							deleniti ut, commodi odio illo tempora eaque sunt
+							lauionem saepe facilis rerum inventore, sint
+							nesciunt. Odit error id voluptatibus libero
+							asperiores molestiae animi tempora dolores eligendi
+							illo ad, perferendis
+						</p>
+					</div>
+
+					<!-- Navigation Links -->
+					<div class="mb-8 md:mb-0">
+						<h3
+							class="text-xl font-semibold mb-4 text-center md:text-left"
+						>
+							Quick Links
+						</h3>
+						<ul
+							class="space-y-2 flex flex-col items-center md:items-start"
+						>
+							<li>
+								<a
+									href="#"
+									class="text-gray-400 hover:text-white"
+									>About Us</a
+								>
+							</li>
+							<li>
+								<a
+									href="#"
+									class="text-gray-400 hover:text-white"
+									>Services</a
+								>
+							</li>
+							<li>
+								<a
+									href="#"
+									class="text-gray-400 hover:text-white"
+									>Contact</a
+								>
+							</li>
+							<li>
+								<a
+									href="#"
+									class="text-gray-400 hover:text-white"
+									>Privacy Policy</a
+								>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Social Media Links -->
+					<div class="mb-8 md:mb-0">
+						<h3
+							class="text-xl font-semibold mb-4 text-center md:text-left"
+						>
+							Follow Us
+						</h3>
+						<div
+							class="flex md:justify-start justify-center space-x-4"
+						>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-white"
+							>
+								<svg
+									class="w-6 h-6"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										d="M24 4.557c-.883.39-1.832.654-2.828.775a4.932 4.932 0 0 0 2.165-2.723c-.951.564-2.005.974-3.127 1.195a4.924 4.924 0 0 0-8.384 4.49A13.978 13.978 0 0 1 1.671 3.149a4.822 4.822 0 0 0-.666 2.475 4.922 4.922 0 0 0 2.188 4.107 4.9 4.9 0 0 1-2.229-.616v.061a4.926 4.926 0 0 0 3.946 4.827 4.902 4.902 0 0 1-2.224.084 4.93 4.93 0 0 0 4.6 3.419A9.869 9.869 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.211c9.057 0 14.01-7.496 14.01-13.986 0-.213-.005-.426-.014-.637a10.025 10.025 0 0 0 2.457-2.548l-.047-.02z"
+									/>
+								</svg>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-white"
+							>
+								<svg
+									class="w-6 h-6"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										d="M12 2.163c-5.47 0-9.95 4.48-9.95 9.95 0 4.411 3.448 8.063 7.93 8.88v-6.282H7.653v-2.599H9.98V9.599c0-2.318 1.421-3.583 3.5-3.583.988 0 2.01.18 2.01.18v2.318H14.26c-1.222 0-1.595.76-1.595 1.538v1.865h2.693l-.432 2.599h-2.261v6.282c4.481-.818 7.93-4.469 7.93-8.88 0-5.47-4.48-9.95-9.95-9.95z"
+									/>
+								</svg>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-white"
+							>
+								<svg
+									class="w-6 h-6"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										d="M12 0C5.372 0 0 5.372 0 12c0 5.3 3.438 9.771 8 11.385V15.46h-2.5V12h2.5V9.5c0-2.543 1.51-4.01 3.793-4.01 1.104 0 2.268.204 2.268.204v2.5H14.94c-1.3 0-1.71.808-1.71 1.637V12h2.905l-.464 3.46H13.23v7.926c4.563-1.614 8-6.085 8-11.385 0-6.628-5.372-12-12-12z"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+
+					<!-- Contact Information -->
+					<div
+						class="mb-8 md:mb-0 flex flex-col items-center md:items-start"
+					>
+						<h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+						<p class="text-gray-400">123 Main Street, Suite 100</p>
+						<p class="text-gray-400">City, State, 12345</p>
+						<p class="text-gray-400">Email: info@company.com</p>
+						<p class="text-gray-400">Phone: (123) 456-7890</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script src="index.js"></script>
+</html>
