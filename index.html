@@ -19,21 +19,19 @@
 			referrerpolicy="no-referrer"
 		/>
 	</head>
-	<!-- <style>
-		/* Optional: Custom scroll bar styling */
-		.scrollbar-hide::-webkit-scrollbar {
-			display: none;
+	<style>
+		.benefit-card {
+			transition: transform 0.3s ease-in-out;
 		}
+		.benefit-card:hover {
+			transform: scale(1.05);
+		}
+	</style>
 
-		.scrollbar-hide {
-			-ms-overflow-style: none; /* IE and Edge */
-			scrollbar-width: none; /* Firefox */
-		}
-	</style> -->
-	<body class="bg-[#f8f4fa]">
+	<body class="bg-cyan-300 text-gray-800">
 		<!-- Navbar -->
 		<nav
-			class="px-3 md:px-16 w-full py-3 fixed flex justify-between items-center bg-[#f6f3f7] z-10"
+			class="px-3 md:px-16 w-full py-3 fixed flex justify-between items-center bg-cyan-500 z-10"
 		>
 			<a
 				href="#"
@@ -181,7 +179,6 @@
 		</nav>
 		<!-- Navbar End Here -->
 
-		<!-- Register model -->
 		<!-- Main contente -->
 		<main>
 			<!-- Home page -->
@@ -265,482 +262,167 @@
 				</div>
 			</section>
 
-			<!-- explore section -->
-			<!-- <section
-				id="explore"
-				class="w-full bg-gray-200 md:px-16 pt-20 mt-10"
+			<!-- tagline section -->
+			<section
+				id="tagline"
+				class="w-full md:px-16 py-20 bg-white"
 			>
-				<h3 class="text-3xl font-bold pl-5">James Wilson</h3>
-				<div class="flex flex-col md:flex-row justify-between">
-					<div class="md:w-[40%] w-full">
-						<p
-							class="uppercase text-nowrap px-5 text-sm font-medium leading-10"
-						>
-							student of 10th standard
-						</p>
-						<img
-							class="md:h-[80%]"
-							src="./images/bg.jpg"
-							alt=""
-						/>
-						<h2 class="uppercase mt-5 px-5 text-2xl font-semibold">
-							christina
-						</h2>
-					</div>
-					<div class="md:w-[60%] w-full px-3 md:mx-4">
-						<h2 class="pl-5 my-3 italic font-semibold">
-							James wilson posted-
-						</h2>
-						<p class="tracking-tight text-justify">
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Maxime et hic inventore asperiores doloremque,
-							repudiandae cumque delectus neque aliquid quidem cum
-							ipsam animi aut deserunt qui ad perspiciatis magni
-							labore ea cupiditate possimus, qui aut! Ipsum
-							quisquam asperiores aspernatur odio illum? Beatae
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. Sit, ex?
-						</p>
-						<p class="tracking-tight text-justify">
-							Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit. Distinctio ut dignissimos repudiandae iusto,
-							expedita dolorum sapiente voluptatibus ullam id quo
-							tempore suscipit, magnam beatae deleniti sint
-							excepturi earum asperiores animi commodi facilis
-							accusamus. Quas quia laudantium totam iusto illum
-							consectetur delectus facilis! Minima dolorum nobis
-							atque delectus neque, adipisci necessitatibus, quia
-							eius voluptatibus reiciendis excepturi. Est fuga
-							placeat ratione at voluptate id blanditiis, aliquam
-							quia saepe quos veritatis sunt laudantium asperiores
-							alias possimus ipsum modi voluptatibus eius dolores.
-							Iusto praesentium, voluptate iure excepturi non
-							alias nulla animi nostrum quos voluptatum omnis ut
-							cupiditate harum similique quia quod tempora illum
-							error?
-						</p>
-						<div
-							class="flex justify-between items-center md:px-20 mt-10"
-						>
-							<div class="flex gap-5">
-								<div>
-									<i
-										class="fa-solid fa-thumbs-up text-5xl"
-									></i>
-									<p>Like</p>
-								</div>
-								<div>
-									<i
-										class="fa-solid fa-comment-dots text-5xl"
-									></i>
-									<p>Comments</p>
-								</div>
-							</div>
-							<a
-								class="rounded-full bg-gray-800 text-white px-8 py-2 inline-block"
-								href="#"
-								>Message</a
-							>
-						</div>
-					</div>
-				</div>
-				<p class="text-center mt-10 font-medium pb-4">
-					Christina posted-
-				</p>
-			</section> -->
-
-			<!-- post section -->
-			<!-- <section
-				id="explore"
-				class="w-full md:px-16 pt-20"
-			>
-				<div class="grid md:grid-cols-3 gap-4 mb-20">
-					<div class="order-1">
-						<h3 class="text-3xl font-bold pl-5">James Wilson</h3>
-						<p
-							class="uppercase text-nowrap px-5 text-sm font-medium leading-10"
-						>
-							student of 10th standard
-						</p>
-					</div>
-					<div
-						class="md:col-span-2 order-3 md:pl-10 md:mt-0 mt-10 flex md:justify-start justify-center items-center"
-					>
-						<h2
-							class="bg-gray-300 w-fit text-xl md:mb-20 px-4 py-2 rounded mb-4"
-						>
-							<i class="fa-solid fa-plus"></i> Add invitation to
-							reach out
-						</h2>
-					</div>
-					<div class="order-2 md:order-3">
-						<div
-							class="md:h-[100%] h-[15rem] border-2 border-black flex justify-center items-center"
-						>
-							<div
-								class="flex flex-col justify-center items-center"
-							>
-								<i class="fa-solid fa-plus text-5xl"></i>
-								<p class="text-sm font-semibold">ADD IMAGE</p>
-							</div>
-						</div>
-					</div>
-					<div class="md:col-span-2 order-4 px-3">
-						<p class="tracking-tight text-justify">
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Maxime et hic inventore asperiores doloremque,
-							repudiandae cumque delectus neque aliquid quidem cum
-							ipsam animi aut deserunt qui ad perspiciatis magni
-							labore ea cupiditate possimus, qui aut! Ipsum
-							quisquam asperiores aspernatur odio illum? Beatae
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. Sit, ex? Lorem ipsum dolor sit, amet
-							consectetur adipisicing elit. Dolorem, consequatur
-							quis. Corporis perspiciatis harum itaque inventore,
-							tempora, porro hic provident quasi quos recusandae
-							repudiandae accusamus possimus nihil aspernatur aut
-							in voluptatem omnis odio quod! Aperiam natus
-							mollitia perspiciatis nulla aspernatur earum minus?
-							Voluptatibus similique cupiditate, reprehenderit
-							repellat praesentium temporibus facere?
-						</p>
-						<p class="tracking-tight text-justify">
-							Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit. Distinctio ut dignissimos repudiandae iusto,
-							expedita dolorum sapiente voluptatibus ullam id quo
-							tempore suscipit, magnam beatae deleniti sint
-							excepturi earum asperiores animi commodi facilis
-							accusamus. Quas quia laudantium totam iusto illum
-							consectetur delectus facilis! Minima dolorum nobis
-							atque delectus neque, adipisci necessitatibus, quia
-							eius voluptatibus reiciendis excepturi. Est fuga
-							placeat ratione at voluptate id blanditiis, aliquam
-							quia saepe quos veritatis sunt laudantium asperiores
-							alias possimus ipsum modi voluptatibus eius dolores.
-							Iusto praesentium, voluptate iure excepturi non
-							alias nulla animi nostrum quos voluptatum omnis ut
-							cupiditate harum similique quia quod tempora illum
-							error?
-						</p>
-						<div class="flex justify-end md:pr-16">
-							<a
-								class="inline-block px-10 py-2 bg-slate-800 text-white rounded-full md:mt-4 mt-6"
-								href="#"
-								>Post</a
-							>
-						</div>
-					</div>
-				</div>
-			</section> -->
-
-			<!-- spike exam section -->
-			<!-- <section
-				id="explore"
-				class="w-full md:px-16 pt-20 bg-gray-200"
-			>
-				<div class="grid md:grid-cols-2 gap-x-40 gap-y-5 mb-20 pb-20">
-					<div class="order-1">
-						<img
-							src="./images/bg.jpg"
-							alt=""
-						/>
-					</div>
-					<div
-						class="md:order-3 order-2 flex flex-col justify-center items-center md:w-[80%]"
-					>
-						<h2 class="text-3xl font-bold">SEO TEST</h2>
-						<div
-							class="flex justify-between w-[50%] mt-3 md:w-[35%]"
-						>
-							<p class="text-sm font-medium">1 HOUR</p>
-							<p class="text-sm font-medium">30 MARKS</p>
-						</div>
-						<p
-							class="text-sm uppercase mt-5 tracking-tight md:px-0 px-3 md:text-left text-center"
-						>
-							Lorem ipsum dolor sit, amet consectetur adipisicing
-							elit. Amet fugiat beatae voluptatem dignissimos
-							harum hic, iusto optio accusantium dolore placeat,
-							saepe ipsa quisquam facere pariatur? Voluptate
-							perferendis illo nobis amet?
-						</p>
-						<a
-							class="inline-block w-fit mt-8 px-10 py-2 bg-slate-800 text-white rounded-full"
-							href="#"
-							>APPLY</a
-						>
-					</div>
-					<div
-						class="md:order-2 order-4 flex flex-col justify-center items-center md:w-[80%]"
-					>
-						<h2 class="text-3xl font-bold">SEO TEST</h2>
-						<div
-							class="flex justify-between w-[50%] mt-3 md:w-[35%]"
-						>
-							<p class="text-sm font-medium">1 HOUR</p>
-							<p class="text-sm font-medium">30 MARKS</p>
-						</div>
-						<p
-							class="text-sm uppercase mt-5 tracking-tight md:px-0 px-3 md:text-left text-center"
-						>
-							Lorem ipsum dolor sit, amet consectetur adipisicing
-							elit. Amet fugiat beatae voluptatem dignissimos
-							harum hic, iusto optio accusantium dolore placeat,
-							saepe ipsa quisquam facere pariatur? Voluptate
-							perferendis illo nobis amet?
-						</p>
-						<a
-							class="inline-block w-fit mt-8 px-10 py-2 bg-slate-800 text-white rounded-full"
-							href="#"
-							>APPLY</a
-						>
-					</div>
-					<div class="md:order-4 order-3">
-						<img
-							src="./images/bg.jpg"
-							alt=""
-						/>
-					</div>
-				</div>
-			</section> -->
-
-			<!-- Opportunities sections -->
-			<!-- <section
-				id="opportunity"
-				class="w-full md:px-16"
-			>
-				<div class="container mx-auto">
-					<h1 class="text-center text-4xl font-bold">
-						ONGOING ACTIVITIES
+				<div class="mx-auto text-center">
+					<h1 class="text-4xl md:text-6xl font-bold">
+						Welcome to XPLOREHIKE!
 					</h1>
-					<p class="text-center text-lg font-semibold mt-3 mb-10">
-						FIELD-BUSSINESS
+					<p class="text-xl md:text-2xl">
+						Start your journey of exploration and growth by building
+						your profile.
 					</p>
-					<div class="relative flex justify-center items-center"> -->
+				</div>
+			</section>
 
-						<!-- extra feature code -->
-						<!-- <div id="prev absolute right-0 z-10 p-2 bg-gray-800 text-white rounded-full">
-							<i class="fa-solid fa-arrow-right absolute right-0 z-10 p-2 bg-gray-800 text-white rounded-full"></i>
+			<!-- Mission Statement Section -->
+			<section class="bg-white py-16 md:px-16">
+				<div class="mx-auto text-center">
+					<h2 class="text-3xl md:text-4xl font-bold mb-10">
+						OUR MISSION
+					</h2>
+					<div
+						class="flex flex-col md:flex-row items-center justify-center mb-8"
+					>
+						<div class="w-full md:w-1/2 mb-4 md:mb-0">
+							<img
+								src="./images/bg.jpg"
+								alt="Mission Image"
+								class="rounded-lg shadow-md"
+							/>
 						</div>
-
-						<div id="next">
-							<i class="fa-solid fa-arrow-left absolute left-0 z-10 p-2 bg-gray-800 text-white rounded-full"></i>
-						</div> -->
-
-						<!-- extra feature code end -->
-
-						<!-- <div
-							id="scrollContainer"
-							class="flex overflow-x-scroll pb-16 scrollbar-hide gap-10"
-						>
-							Card 1 -->
-							<!-- <div
-								class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
-							> -->
-								<!-- <img
-									class="rounded-md"
-									src="./images/bg.jpg"
-									alt=""
-								/>
-								<h2
-									class="text-3xl uppercase font-semibold my-4"
-								>
-									Conard challenge
-								</h2> -->
-								<!-- <p class="text-sm text-justify tracking-tight">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Veniam deserunt quos nihil
-									ut tenetur temporibus voluptatibus fugiat
-									eaque, deleniti expedita?
-								</p> -->
-								<!-- <p
-									class="uppercase text-center mt-6 font-semibold"
-								>
-									free
-								</p>
-								<div class="flex justify-center mt-4"> -->
-									<!-- <a
-										class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
-										href="#"
-										>APPLY</a
-									>
-								</div>
-							</div> -->
-							<!-- Card 2 -->
-							<!-- <div
-								class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
-							>
-								<img
-									class="rounded-md"
-									src="./images/bg.jpg"
-									alt=""
-								/>
-								<h2
-									class="text-3xl uppercase font-semibold my-4"
-								>
-									Conard challenge
-								</h2>
-								<p class="text-sm text-justify tracking-tight">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Veniam deserunt quos nihil
-									ut tenetur temporibus voluptatibus fugiat
-									eaque, deleniti expedita?
-								</p>
-								<p
-									class="uppercase text-center mt-6 font-semibold"
-								>
-									free
-								</p>
-								<div class="flex justify-center mt-4">
-									<a
-										class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
-										href="#"
-										>APPLY</a
-									>
-								</div>
-							</div> -->
-							<!-- Card 3 -->
-							<!-- <div
-								class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
-							>
-								<img
-									class="rounded-md"
-									src="./images/bg.jpg"
-									alt=""
-								/>
-								<h2
-									class="text-3xl uppercase font-semibold my-4"
-								>
-									Conard challenge
-								</h2>
-								<p class="text-sm text-justify tracking-tight">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Veniam deserunt quos nihil
-									ut tenetur temporibus voluptatibus fugiat
-									eaque, deleniti expedita?
-								</p>
-								<p
-									class="uppercase text-center mt-6 font-semibold"
-								>
-									free
-								</p>
-								<div class="flex justify-center mt-4">
-									<a
-										class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
-										href="#"
-										>APPLY</a
-									>
-								</div>
-							</div> -->
-							<!-- Add more cards as needed -->
-							<!-- <div
-								class="flex-shrink-0 md:w-[32%] w-[100%] bg-white rounded-lg shadow-lg p-4"
-							>
-								<img
-									class="rounded-md"
-									src="./images/bg.jpg"
-									alt=""
-								/>
-								<h2
-									class="text-3xl uppercase font-semibold my-4"
-								>
-									Conard challenge
-								</h2>
-								<p class="text-sm text-justify tracking-tight">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Veniam deserunt quos nihil
-									ut tenetur temporibus voluptatibus fugiat
-									eaque, deleniti expedita?
-								</p>
-								<p
-									class="uppercase text-center mt-6 font-semibold"
-								>
-									free
-								</p>
-								<div class="flex justify-center mt-4">
-									<a
-										class="inline-block bg-slate-800 text-white px-16 py-2 rounded-full"
-										href="#"
-										>APPLY</a
-									>
-								</div>
-							</div> -->
-						<!-- </div>
+						<div class="w-full md:w-1/2 md:pl-8">
+							<p class="text-lg md:text-xl mb-4">
+								At XPLOREHIKE, we are dedicated to empowering
+								students by providing them with the tools and
+								resources to explore opportunities, build a
+								strong portfolio, and grow professionally.
+							</p>
+							<p class="text-lg md:text-xl">
+								Our goal is to create a supportive platform
+								where students can connect with mentors, access
+								valuable insights, and track their progress to
+								achieve their career aspirations.
+							</p>
+						</div>
 					</div>
 				</div>
-			</section>  -->
+			</section>
 
-			<!-- about section -->
-			<!-- <section
-				id="about"
-				class="w-full md:px-16 py-16 bg-gray-200"
-			>
-				<div
-					class="flex md:flex-row flex-col justify-between items-center gap-10"
-				>
-					<div class="md:w-1/2 px-3">
-						<h2
-							class="text-center uppercase text-xl font-medium leading-6"
-						>
-							<span class="block">Lorem ipsum, dolor sit</span>
-							amet consectetur adipisicing elit. Cumque officia a
-							quis veritatis, placeat tenetur, autem itaque totam
-							ipsam assumenda eaque voluptas porro, officiis eos
-							nostrum delectus quam non voluptate!
-						</h2>
-						<h2
-							class="text-center uppercase text-xl font-medium leading-6 mt-8"
-						>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Maximeuo accusantium tenetur!
-						</h2>
-					</div>
-
-					<form
-						action=""
-						class="md:w-[40%] flex flex-col gap-3"
+			<!-- Benefits Section -->
+			<section class="bg-gray-100 py-16">
+				<div class="max-w-6xl mx-auto px-6 text-center">
+					<h2 class="text-3xl md:text-4xl font-bold mb-8">
+						BENEFITS
+					</h2>
+					<div
+						class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
 					>
+						<div
+							class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+						>
+							<h3 class="text-xl font-semibold mb-4">
+								Stay Updated
+							</h3>
+							<p class="text-gray-700">
+								Stay updated about various opportunities in your
+								field of interest.
+							</p>
+						</div>
+						<div
+							class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+						>
+							<h3 class="text-xl font-semibold mb-4">
+								Build Portfolio
+							</h3>
+							<p class="text-gray-700">
+								Build a consistent portfolio over time to
+								showcase your accomplishments.
+							</p>
+						</div>
+						<div
+							class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+						>
+							<h3 class="text-xl font-semibold mb-4">
+								Connect with Peers
+							</h3>
+							<p class="text-gray-700">
+								Connect with peers and mentors to enhance your
+								learning journey.
+							</p>
+						</div>
+						<div
+							class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+						>
+							<h3 class="text-xl font-semibold mb-4">
+								Track Progress
+							</h3>
+							<p class="text-gray-700">
+								Track your progress and achievements to measure
+								your growth.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Section -->
+			<section class="py-16">
+				<div class="max-w-6xl mx-auto px-6 text-center">
+					<h2 class="text-3xl md:text-4xl font-bold mb-8">
+						Contact Us
+					</h2>
+					<p class="text-xl mb-8">
+						Have questions or want to learn more about XPLOREHIKE?
+						Reach out to us!
+					</p>
+					<form
+						action="#"
+						method="POST"
+						class="max-w-lg mx-auto"
+					>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<input
+								type="text"
+								name="name"
+								placeholder="Your Name"
+								class="bg-gray-100 rounded-md py-3 px-4 outline-none border-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+								required
+							/>
+							<input
+								type="email"
+								name="email"
+								placeholder="Your Email"
+								class="bg-gray-100 rounded-md py-3 px-4 outline-none border-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+								required
+							/>
+						</div>
 						<input
-							class="px-3 py-2 rounded-md bg-gray-400 text-white placeholder:text-white placeholder:font-medium"
-							type="text"
-							name="name"
-							id="name"
-							placeholder="NAME"
-						/>
-						<input
-							class="px-3 py-2 rounded-md bg-gray-400 text-white placeholder:text-white placeholder:font-medium"
-							type="email"
-							name="email"
-							id="email"
-							placeholder="E-MAIL"
-						/>
-						<input
-							class="px-3 py-2 rounded-md bg-gray-400 text-white placeholder:text-white placeholder:font-medium"
 							type="text"
 							name="subject"
-							id="subject"
-							placeholder="SUBJECT"
+							placeholder="Subject"
+							class="bg-gray-100 rounded-md py-3 px-4 mt-4 w-full outline-none border-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+							required
 						/>
 						<textarea
-							class="px-3 py-2 rounded-md bg-gray-400 text-white placeholder:text-white placeholder:font-medium resize-none"
-							cols="30"
-							rows="5"
 							name="message"
-							id="message"
-							placeholder="MESSAGE"
+							rows="5"
+							placeholder="Your Message"
+							class="bg-gray-100 rounded-md py-3 resize-none px-4 mt-4 w-full outline-none border-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+							required
 						></textarea>
-						<div class="flex justify-center">
-							<button
-								class="bg-slate-800 w-fit text-white px-10 py-2 rounded-full text-center mt-10"
-							>
-								SUBMIT
-							</button>
-						</div>
+						<button
+							type="submit"
+							class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-md shadow-md mt-6 transition duration-300"
+						>
+							Send Message
+						</button>
 					</form>
 				</div>
-				<p class="text-lg font-bold mt-4 pb-2 md:pl-0 pl-3">E-mail:</p>
-				<p class="text-sm font-medium md:pl-0 pl-3">abc123@gmail.com</p>
-			</section> -->
+			</section>
 		</main>
 
 		<!-- footer section -->

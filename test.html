@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>XPLOREHIKE - Explore Opportunities</title>
+		<link
+			rel="stylesheet"
+			href="./main/style.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<style>
+		/* Additional styles can be added here */
+		.benefit-card {
+			transition: transform 0.3s ease-in-out;
+		}
+		.benefit-card:hover {
+			transform: scale(1.05);
+		}
+	</style>
+
+	<body class="bg-cyan-500 text-gray-800">
+		<!-- Header -->
+		<header class="py-8">
+			<div class="max-w-6xl mx-auto px-6 text-center">
+				<h1 class="text-4xl md:text-6xl font-bold mb-4">
+					Welcome to XPLOREHIKE!
+				</h1>
+				<p class="text-xl md:text-2xl mb-8">
+					Start your journey of exploration and growth by building
+					your profile.
+				</p>
+			</div>
+		</header>
+
+		<!-- Mission Statement Section -->
+		<section class="bg-white py-16">
+			<div class="max-w-6xl mx-auto px-6 text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8">OUR MISSION</h2>
+				<div
+					class="flex flex-col md:flex-row items-center justify-center mb-8"
+				>
+					<div class="w-full md:w-1/2 mb-4 md:mb-0">
+						<img
+							src="./images/bg.jpg"
+							alt="Mission Image"
+							class="rounded-lg shadow-md"
+						/>
+					</div>
+					<div class="w-full md:w-1/2 md:pl-8">
+						<p class="text-lg md:text-xl mb-4">
+							At XPLOREHIKE, we are dedicated to empowering
+							students by providing them with the tools and
+							resources to explore opportunities, build a strong
+							portfolio, and grow professionally.
+						</p>
+						<p class="text-lg md:text-xl">
+							Our goal is to create a supportive platform where
+							students can connect with mentors, access valuable
+							insights, and track their progress to achieve their
+							career aspirations.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section class="bg-gray-100 py-16">
+			<div class="max-w-6xl mx-auto px-6 text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8">BENEFITS</h2>
+				<div
+					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+				>
+					<div
+						class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+					>
+						<div
+							class="benefit-color absolute inset-0 rounded-lg shadow-md"
+						></div>
+						<h3 class="text-xl font-semibold mb-4">Stay Updated</h3>
+						<p class="text-gray-700">
+							Stay updated about various opportunities in your
+							field of interest.
+						</p>
+					</div>
+					<div
+						class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+					>
+						<div
+							class="benefit-color absolute inset-0 rounded-lg shadow-md"
+						></div>
+						<h3 class="text-xl font-semibold mb-4">
+							Build Portfolio
+						</h3>
+						<p class="text-gray-700">
+							Build a consistent portfolio over time to showcase
+							your accomplishments.
+						</p>
+					</div>
+					<div
+						class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+					>
+						<div
+							class="benefit-color absolute inset-0 rounded-lg shadow-md"
+						></div>
+						<h3 class="text-xl font-semibold mb-4">
+							Connect with Peers
+						</h3>
+						<p class="text-gray-700">
+							Connect with peers and mentors to enhance your
+							learning journey.
+						</p>
+					</div>
+					<div
+						class="bg-white rounded-lg shadow-md p-6 relative benefit-card"
+					>
+						<div
+							class="benefit-color absolute inset-0 rounded-lg shadow-md"
+						></div>
+						<h3 class="text-xl font-semibold mb-4">
+							Track Progress
+						</h3>
+						<p class="text-gray-700">
+							Track your progress and achievements to measure your
+							growth.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="py-16">
+			<div class="max-w-6xl mx-auto px-6 text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8">Contact Us</h2>
+				<p class="text-xl mb-8">
+					Have questions or want to learn more about XPLOREHIKE? Reach
+					out to us!
+				</p>
+				<form
+					action="#"
+					method="POST"
+					class="max-w-lg mx-auto"
+				>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<input
+							type="text"
+							name="name"
+							placeholder="Your Name"
+							class="bg-gray-100 rounded-md py-3 px-4 outline-none border-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+							required
+						/>
+						<input
+							type="email"
+							name="email"
+							placeholder="Your Email"
+							class="bg-gray-100 rounded-md py-3 px-4 outline-none border-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+							required
+						/>
+					</div>
+					<textarea
+						name="message"
+						rows="5"
+						placeholder="Your Message"
+						class="bg-gray-100 rounded-md py-3 px-4 mt-4 w-full outline-none border-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
+						required
+					></textarea>
+					<button
+						type="submit"
+						class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-md shadow-md mt-6 transition duration-300"
+					>
+						Send Message
+					</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="bg-gray-800 text-white py-6">
+			<div class="max-w-6xl mx-auto px-6 text-center">
+				<p>&copy; 2024 XPLOREHIKE. All rights reserved.</p>
+			</div>
+		</footer>
+	</body>
+	<script src="index.js"></script>
+</html>
