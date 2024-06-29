@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Admin - Create Card</title>
+		<link
+			rel="stylesheet"
+			href="./main/style.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body>
+		<div class="bg-cyan-200 min-h-screen mx-auto pt-28">
+			<div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+				<h1 class="text-2xl font-bold text-gray-800 mb-4">
+					Create a New Card
+				</h1>
+				<form
+					id="productForm"
+					class="space-y-4"
+				>
+					<div class="flex flex-col">
+						<label
+							for="productImage"
+							class="text-sm text-gray-600"
+							>Image</label
+						>
+						<input
+							type="file"
+							id="productImage"
+							name="productImage"
+							accept="image/*"
+							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+						/>
+					</div>
+					<div class="flex flex-col">
+						<label
+							for="productTitle"
+							class="text-sm text-gray-600"
+							>Title</label
+						>
+						<input
+							type="text"
+							id="productTitle"
+							name="productTitle"
+							placeholder="Enter product title"
+							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+						/>
+					</div>
+					<div class="flex flex-col">
+						<label
+							for="productDescription"
+							class="text-sm text-gray-600"
+							>Description</label
+						>
+						<textarea
+							id="productDescription"
+							name="productDescription"
+							rows="4"
+							placeholder="Enter product description"
+							class="px-3 py-2 border resize-none border-gray-300 focus:outline-none focus:border-blue-500"
+						></textarea>
+					</div>
+					<div class="flex flex-col">
+						<label
+							for="productPrice"
+							class="text-sm text-gray-600"
+							>Price</label
+						>
+						<input
+							type="number"
+							id="productPrice"
+							name="productPrice"
+							placeholder="Enter product price"
+							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+						/>
+					</div>
+					<div class="flex justify-end">
+						<button
+							type="submit"
+							class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+						>
+							Save Product
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				document
+					.getElementById("productForm")
+					.addEventListener("submit", function (event) {
+						event.preventDefault();
+
+						var productImage =
+							document.getElementById("productImage").files[0];
+						var productTitle =
+							document.getElementById("productTitle").value;
+						var productDescription =
+							document.getElementById("productDescription").value;
+						var productPrice =
+							document.getElementById("productPrice").value;
+
+						console.log("Product Image:", productImage);
+						console.log("Product Title:", productTitle);
+						console.log("Product Description:", productDescription);
+						console.log("Product Price:", productPrice);
+
+						document.getElementById("productForm").reset();
+					});
+			});
+		</script>
+	</body>
+	<script src="index.js"></script>
+</html>

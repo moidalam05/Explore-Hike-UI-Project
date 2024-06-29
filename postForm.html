@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Admin - Create Post</title>
+		<link
+			rel="stylesheet"
+			href="./main/style.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<!-- Include TinyMCE styles -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.3/skins/ui/oxide/skin.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="bg-cyan-200 mx-auto py-8">
+			<div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+				<h1 class="text-2xl font-bold text-gray-800 mb-4">
+					Create a New Post
+				</h1>
+				<form
+					id="postForm"
+					class="space-y-4"
+				>
+					<div class="flex flex-col">
+						<label
+							for="authorName"
+							class="text-sm text-gray-600"
+							>Your Name</label
+						>
+						<input
+							type="text"
+							id="authorName"
+							name="authorName"
+							placeholder="Enter your name"
+							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+						/>
+					</div>
+					<div class="flex flex-col">
+						<label
+							for="designation"
+							class="text-sm text-gray-600"
+							>Designation</label
+						>
+						<input
+							type="text"
+							id="designation"
+							name="designation"
+							placeholder="Enter your designation"
+							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+						/>
+					</div>
+					<div class="flex flex-col">
+						<label
+							for="postImage"
+							class="text-sm text-gray-600"
+							>Post Image</label
+						>
+						<input
+							type="file"
+							id="postImage"
+							name="postImage"
+							accept="image/*"
+							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+						/>
+					</div>
+					<div class="flex flex-col">
+						<label
+							for="postContent"
+							class="text-sm text-gray-600"
+							>Post Content</label
+						>
+						<textarea
+							id="postContent"
+							name="postContent"
+							class="bg-white border border-gray-300 focus:outline-none focus:border-blue-500"
+						></textarea>
+					</div>
+					<div class="flex justify-end">
+						<button
+							type="submit"
+							class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+						>
+							Publish Post
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Include TinyMCE library for rich text editing -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.3/tinymce.min.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				tinymce.init({
+					selector: "#postContent",
+					plugins:
+						"print preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help charmap quickbars emoticons",
+					toolbar:
+						"undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | preview save print | insertfile image media template link anchor codesample | ltr rtl",
+					height: 400,
+					menubar: "file edit view insert format tools table help",
+				});
+
+				document
+					.getElementById("postForm")
+					.addEventListener("submit", function (event) {
+						event.preventDefault();
+
+						var authorName =
+							document.getElementById("authorName").value;
+						var designation =
+							document.getElementById("designation").value;
+						var postImage =
+							document.getElementById("postImage").files[0];
+						var postContent = tinymce
+							.get("postContent")
+							.getContent();
+
+						console.log("Author Name:", authorName);
+						console.log("Designation:", designation);
+						console.log("Post Image:", postImage);
+						console.log("Post Content:", postContent);
+
+						document.getElementById("postForm").reset();
+						tinymce.get("postContent").setContent("");
+					});
+			});
+		</script>
+	</body>
+	<script src="index.js"></script>
+</html>

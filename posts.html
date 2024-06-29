@@ -19,11 +19,6 @@
 			referrerpolicy="no-referrer"
 		/>
 	</head>
-	<style>
-		.hide-scrollbar::-webkit-scrollbar {
-			display: none;
-		}
-	</style>
 	<body>
 		<!-- Navbar -->
 		<nav
@@ -180,36 +175,42 @@
 		</nav>
 		<!-- Navbar End Here -->
 
-		<!-- explore section -->
+		<!-- post section -->
 		<section
 			id="explore"
-			class="w-full bg-cyan-200 md:px-16 py-28"
+			class="w-full md:px-16 pt-28 bg-cyan-200 pb-16"
 		>
-			<h3 class="text-3xl font-bold pl-5">James Wilson</h3>
-			<div class="flex flex-col md:flex-row justify-between">
-				<div class="md:w-[45%] w-full">
+			<div class="grid md:grid-cols-3 gap-4 mb-20">
+				<div class="order-1 mb-10">
+					<h3 class="text-3xl font-bold pl-5">James Wilson</h3>
 					<p
 						class="uppercase text-nowrap px-5 text-sm font-medium leading-10"
 					>
 						student of 10th standard
 					</p>
-					<img
-						class="md:h-[400px]"
-						src="./images/bg.jpg"
-						alt=""
-					/>
-					<!-- <h2 class="uppercase mt-5 px-5 text-2xl font-semibold">
-						christina
-					</h2> -->
 				</div>
-				<div class="md:w-[55%] w-full px-4 md:mx-4">
-					<h2 class="pl-5 my-3 italic font-semibold">
-						<span class="capitalize">James wilson</span> posted-
-					</h2>
-					<p
-						id="content"
-						class="tracking-tight text-justify"
+				<div
+					class="md:col-span-2 order-3 md:pl-10 md:mt-0 mt-10 flex md:justify-start justify-center items-center"
+				>
+					<h2
+						class="bg-blue-600 text-white w-fit text-xl mb-10 px-4 py-2 rounded"
 					>
+						<i class="fa-solid fa-plus"></i> Add invitation to reach
+						out
+					</h2>
+				</div>
+				<div class="order-2 md:order-3">
+					<div
+						class="md:h-[100%] h-[15rem] border-2 border-black flex justify-center items-center"
+					>
+						<div class="flex flex-col justify-center items-center">
+							<i class="fa-solid fa-plus text-5xl"></i>
+							<p class="text-sm font-semibold">ADD IMAGE</p>
+						</div>
+					</div>
+				</div>
+				<div class="md:col-span-2 order-4 px-3">
+					<p class="tracking-tight text-justify">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Maxime et hic inventore asperiores doloremque,
 						repudiandae cumque delectus neque aliquid quidem cum
@@ -217,88 +218,41 @@
 						labore ea cupiditate possimus, qui aut! Ipsum quisquam
 						asperiores aspernatur odio illum? Beatae Lorem ipsum
 						dolor, sit amet consectetur adipisicing elit. Sit, ex?
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Ea enim vitae quae atque, sunt illo quis nisi ut dolor
-						ab earum culpa dolorum distinctio, ullam eius nam,
-						debitis maxime at ex libero similique! Nisi nam non
-						alias exercitationem, laudantium molestiae eos ipsam
-						totam dolorum earum quidem hic sit asperiores maiores
-						aspernatur in aliquam. Optio non quaerat officiis,
-						similique placeat corporis sapiente quis cupiditate
-						ducimus facilis totam ea autem eos saepe unde maiores
-						eaque, voluptas dolorem exercitationem. Repellat
-						temporibus praesentium voluptatibus voluptatem dolores
-						ipsum recusandae sunt ex voluptatum quae possimus,
-						tempora quod repudiandae molestiae quam dolorum autem
-						enim similique neque! Laboriosam! Lorem, ipsum dolor sit
-						amet consectetur adipisicing elit. Iusto, porro error.
-						Deserunt ipsum, dolorum nobis eaque, quam dicta alias,
-						repudiandae earum in quidem cupiditate nihil nesciunt
-						quae nam voluptatum expedita quaerat consectetur
-						deleniti vel ea enim sint reiciendis. Dicta itaque natus
-						asperiores optio eum a debitis, voluptatum molestiae ea
-						cupiditate sequi sunt iure dolores quibusdam repellat
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Ratione et necessitatibus nesciunt neque, facilis
-						explicabo provident, commodi quisquam esse ipsum maxime
-						consequuntur corporis nemo veniam eum amet. Rem impedit
-						repudiandae quam tenetur nemo nulla autem magni, placeat
-						dicta doloribus voluptatum, dolores delectus ratione sed
-						recusandae. Quisquam dolorum maiores perspiciatis nemo
-						culpa possimus repellat placeat ea modi eum temporibus
-						esse aut iusto incidunt, iure eius sint molestias facere
-						dignissimos rerum! Aliquid, enim quas modi dolore illum
-						minus rem, at porro iusto amet sit ab labore provident
-						doloremque ex? In perferendis explicabo, sed illum
-						incidunt nihil quas? Delectus illo nemo qui aspernatur?
+						Lorem ipsum dolor sit, amet consectetur adipisicing
+						elit. Dolorem, consequatur quis. Corporis perspiciatis
+						harum itaque inventore, tempora, porro hic provident
+						quasi quos recusandae repudiandae accusamus possimus
+						nihil aspernatur aut in voluptatem omnis odio quod!
+						Aperiam natus mollitia perspiciatis nulla aspernatur
+						earum minus? Voluptatibus similique cupiditate,
+						reprehenderit repellat praesentium temporibus facere?
+					</p>
+					<p class="tracking-tight text-justify mt-5">
+						Lorem ipsum dolor sit amet, consectetur adipisicing
+						elit. Distinctio ut dignissimos repudiandae iusto,
+						expedita dolorum sapiente voluptatibus ullam id quo
+						tempore suscipit, magnam beatae deleniti sint excepturi
+						earum asperiores animi commodi facilis accusamus. Quas
+						quia laudantium totam iusto illum consectetur delectus
+						facilis! Minima dolorum nobis atque delectus neque,
+						adipisci necessitatibus, quia eius voluptatibus
+						reiciendis excepturi. Est fuga placeat ratione at
+						voluptate id blanditiis, aliquam quia saepe quos
+						veritatis sunt laudantium asperiores alias possimus
+						ipsum modi voluptatibus eius dolores. Iusto praesentium,
+						voluptate iure excepturi non alias nulla animi nostrum
+						quos voluptatum omnis ut cupiditate harum similique quia
+						quod tempora illum error?
 					</p>
 					<div
-						class="flex justify-between items-center md:px-10 mt-5"
+						class="flex md:justify-end justify-center mt-10 md:pr-16"
 					>
-						<div class="flex gap-10">
-							<div>
-								<i
-									id="likeButton"
-									class="fa-solid fa-thumbs-up cursor-pointer md:text-3xl text-3xl"
-								></i>
-								<p id="likeCount">0</p>
-							</div>
-							<div>
-								<i
-									id="commentButton"
-									class="fa-solid fa-comment-dots cursor-pointer md:text-3xl text-2xl"
-								></i>
-								<p id="commentCount">0</p>
-							</div>
-						</div>
-						<div
-							id="commentSection"
-							class="hidden mt-8"
-						>
-							<textarea
-								id="commentBox"
-								class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none"
-								placeholder="Write your comment here..."
-							></textarea>
-							<button
-								id="submitComment"
-								class="mt-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-							>
-								Comment
-							</button>
-						</div>
-
 						<a
-							id="readMoreBtn"
-							class="rounded-full bg-blue-600 text-white px-8 py-2 inline-block font-semibold"
+							class="inline-block px-10 py-2 bg-blue-600 text-white rounded-full md:mt-4 mt-6"
 							href="#"
-							>Read More</a
+							>Post</a
 						>
 					</div>
-					<div
-						id="commentsList"
-						class="mt-5 hidden bg-white py-2 px-3 rounded-md w-[300px] hide-scrollbar overflow-auto h-[300px]"
-					></div>
 				</div>
 			</div>
 		</section>
@@ -445,45 +399,5 @@
 			</div>
 		</footer>
 	</body>
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			const content = document.getElementById("content");
-			const readMoreBtn = document.getElementById("readMoreBtn");
-			const maxWords = 200;
-
-			// Store full content and truncate content to maxWords
-			const fullContent = content.textContent.trim().split(/\s+/);
-			if (fullContent.length > maxWords) {
-				content.textContent =
-					fullContent.slice(0, maxWords).join(" ") + "...";
-			} else {
-				readMoreBtn.style.display = "none";
-			}
-
-			readMoreBtn.addEventListener("click", function () {
-				window.location.href = "post.html";
-			});
-
-			// Like and Comment Button
-			const likeButton = document.getElementById("likeButton");
-			const likeCount = document.getElementById("likeCount");
-			const commentButton = document.getElementById("commentButton");
-			const commentCount = document.getElementById("commentCount");
-			const commentsList = document.getElementById("commentsList");
-			const submitComment = document.getElementById("submitComment");
-
-			likeButton.addEventListener("click", function () {
-				let count = parseInt(likeCount.textContent, 10);
-				if (likeButton.classList.contains("text-blue-500")) {
-					likeCount.textContent = count - 1;
-					likeButton.classList.remove("text-blue-500");
-				} else {
-					likeCount.textContent = count + 1;
-					likeButton.classList.add("text-blue-500");
-				}
-			});
-		});
-	</script>
-
 	<script src="index.js"></script>
 </html>
