@@ -19,3 +19,4 @@ nextButton.addEventListener("click", () => {
 prevButton.addEventListener("click", () => {
 	scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
 });
+
