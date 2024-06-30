@@ -261,31 +261,15 @@
 									id="likeButton"
 									class="fa-solid fa-thumbs-up cursor-pointer md:text-3xl text-3xl"
 								></i>
-								<p id="likeCount">0</p>
+								<p>Like</p>
 							</div>
 							<div>
 								<i
-									id="commentButton"
-									class="fa-solid fa-comment-dots cursor-pointer md:text-3xl text-2xl"
+									id="shareButton"
+									class="fa-solid fa-share-from-square cursor-pointer md:text-3xl text-2xl"
 								></i>
-								<p id="commentCount">0</p>
+								<p>Share</p>
 							</div>
-						</div>
-						<div
-							id="commentSection"
-							class="hidden mt-8"
-						>
-							<textarea
-								id="commentBox"
-								class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 resize-none"
-								placeholder="Write your comment here..."
-							></textarea>
-							<button
-								id="submitComment"
-								class="mt-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-							>
-								Comment
-							</button>
 						</div>
 
 						<a
@@ -464,24 +448,37 @@
 				window.location.href = "post.html";
 			});
 
-			// Like and Comment Button
+			// Like and Share Button
 			const likeButton = document.getElementById("likeButton");
-			const likeCount = document.getElementById("likeCount");
-			const commentButton = document.getElementById("commentButton");
-			const commentCount = document.getElementById("commentCount");
-			const commentsList = document.getElementById("commentsList");
-			const submitComment = document.getElementById("submitComment");
 
 			likeButton.addEventListener("click", function () {
-				let count = parseInt(likeCount.textContent, 10);
 				if (likeButton.classList.contains("text-blue-500")) {
-					likeCount.textContent = count - 1;
 					likeButton.classList.remove("text-blue-500");
 				} else {
-					likeCount.textContent = count + 1;
 					likeButton.classList.add("text-blue-500");
 				}
 			});
+
+			document
+				.getElementById("shareButton")
+				.addEventListener("click", function () {
+					if (navigator.share) {
+						navigator
+							.share({
+								title: "Check out this post!",
+								text: "Here is an interesting post I found.",
+								url: window.location.href,
+							})
+							.then(() => {
+								console.log("Thanks for sharing!");
+							})
+							.catch((error) => {
+								console.error("Error sharing:", error);
+							});
+					} else {
+						alert("Web Share API not supported in this browser.");
+					}
+				});
 		});
 	</script>
 
