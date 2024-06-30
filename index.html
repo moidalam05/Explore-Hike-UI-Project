@@ -26,6 +26,18 @@
 		.benefit-card:hover {
 			transform: scale(1.05);
 		}
+
+		details summary {
+			list-style: none; /* Removes default arrow */
+		}
+
+		details summary::-webkit-details-marker {
+			display: none; /* Removes default arrow in WebKit/Blink browsers (Chrome, Safari) */
+		}
+
+		details summary::marker {
+			display: none; /* Removes default arrow in Firefox */
+		}
 	</style>
 
 	<body class="bg-cyan-300 text-gray-800">
@@ -82,11 +94,27 @@
 					class="font-medium hover:text-primary"
 					>About ExploreHike</a
 				>
-				<a
-					href="./registraion.html"
-					class="font-medium hover:text-primary"
-					>Register</a
-				>
+				<details class="relative">
+					<summary
+						class="font-medium group hover:text-primary cursor-pointer"
+					>
+						Join us
+					</summary>
+					<div
+						class="flex flex-col gap-1 p-2 -left-2 top-6 absolute rounded-md shadow-md bg-cyan-500"
+					>
+						<a
+							href="./registraion.html"
+							class="font-medium hover:text-primary"
+							>Register</a
+						>
+						<a
+							href="./login.html"
+							class="font-medium hover:text-primary"
+							>Log in</a
+						>
+					</div>
+				</details>
 			</div>
 			<div class="flex-1 hidden lg:flex justify-end">
 				<button
@@ -168,11 +196,25 @@
 						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
 						>About ExploreHike</a
 					>
-					<a
-						href="./registraion.html"
-						class="font-medium m-3 p-3 hover:bg-gray-100 block rounded-lg"
-						>Register</a
-					>
+					<details class="font-medium m-3 p-3 block rounded-lg">
+						<summary
+							class="font-medium hover:text-primary cursor-pointer"
+						>
+							Join us
+						</summary>
+						<div class="flex flex-col gap-1 mt-3 bg-white">
+							<a
+								href="./registraion.html"
+								class="font-medium hover:text-primary"
+								>Register</a
+							>
+							<a
+								href="./login.html"
+								class="font-medium hover:text-primary"
+								>Log in</a
+							>
+						</div>
+					</details>
 				</div>
 				<div class="h-[1px] bg-gray-400"></div>
 				<button
