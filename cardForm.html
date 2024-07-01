@@ -1,127 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Admin - Create Card</title>
-		<link
-			rel="stylesheet"
-			href="./main/style.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-	</head>
-	<body>
-		<div class="bg-cyan-200 min-h-screen mx-auto pt-28">
-			<div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
-				<h1 class="text-2xl font-bold text-gray-800 mb-4">
-					Create a New Card
-				</h1>
-				<form
-					id="productForm"
-					class="space-y-4"
-				>
-					<div class="flex flex-col">
-						<label
-							for="productImage"
-							class="text-sm text-gray-600"
-							>Image</label
-						>
-						<input
-							type="file"
-							id="productImage"
-							name="productImage"
-							accept="image/*"
-							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
-						/>
-					</div>
-					<div class="flex flex-col">
-						<label
-							for="productTitle"
-							class="text-sm text-gray-600"
-							>Title</label
-						>
-						<input
-							type="text"
-							id="productTitle"
-							name="productTitle"
-							placeholder="Enter product title"
-							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
-						/>
-					</div>
-					<div class="flex flex-col">
-						<label
-							for="productDescription"
-							class="text-sm text-gray-600"
-							>Description</label
-						>
-						<textarea
-							id="productDescription"
-							name="productDescription"
-							rows="4"
-							placeholder="Enter product description"
-							class="px-3 py-2 border resize-none border-gray-300 focus:outline-none focus:border-blue-500"
-						></textarea>
-					</div>
-					<div class="flex flex-col">
-						<label
-							for="productPrice"
-							class="text-sm text-gray-600"
-							>Price</label
-						>
-						<input
-							type="number"
-							id="productPrice"
-							name="productPrice"
-							placeholder="Enter product price"
-							class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
-						/>
-					</div>
-					<div class="flex justify-end">
-						<button
-							type="submit"
-							class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-						>
-							Save Product
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Dashboard - XPLOREHIKE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        .sidebar {
+            transition: width 0.3s ease;
+        }
 
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				document
-					.getElementById("productForm")
-					.addEventListener("submit", function (event) {
-						event.preventDefault();
+        .sidebar.collapsed {
+            width: 4rem;
+        }
 
-						var productImage =
-							document.getElementById("productImage").files[0];
-						var productTitle =
-							document.getElementById("productTitle").value;
-						var productDescription =
-							document.getElementById("productDescription").value;
-						var productPrice =
-							document.getElementById("productPrice").value;
+        .sidebar.collapsed .nav-text {
+            display: none;
+        }
 
-						console.log("Product Image:", productImage);
-						console.log("Product Title:", productTitle);
-						console.log("Product Description:", productDescription);
-						console.log("Product Price:", productPrice);
+        .sidebar.collapsed .nav-icon {
+            margin: auto;
+        }
 
-						document.getElementById("productForm").reset();
-					});
-			});
-		</script>
-	</body>
-	<script src="index.js"></script>
-</html>
+        .sidebar .nav-item {
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar .nav-item:hover {
+            background-color: #1d2d44;
+        }
+
+        .sidebar .active {
+            background-color: #1a365d;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-cyan-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar w-64 bg-blue-800 text-white flex-shrink-0">
+            <div class="p-4 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-cyan-300">XPLOREHIKE</h1>
+                <button id="toggle-btn" class="text-white focus:outline-none">
+                    <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="mt-4 space-y-2">
+                <a href="#" id="dashboard-link" class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fas fa-tachometer-alt nav-icon"></i>
+                    <span class="ml-3 nav-text">Dashboard</span>
+                </a>
+                <a href="#" id="students-link" class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fas fa-user-graduate nav-icon"></i>
+                    <span class="ml-3 nav-text">Students Details</span>
+                </a>
+                <a href="#" id="events-link" class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fas fa-calendar-alt nav-icon"></i>
+                    <span class="ml-3 nav-text">Add Events</span>
+                </a>
+                <a href="#" id="exams-link" class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fas fa-file-alt nav-icon"></i>
+                    <span class="ml-3 nav-text">Add Exams</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <main id="main-content" class="flex-1 p-4">
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section">
+                <h1 class="text-3xl font-bold text-gray-400 mb-4">Welcome to the Dashboard</h1>
+                <p class="text-lg text-gray-500">Here you can manage various aspects of XPLOREHIKE.</p>
+            </section>
+
+            <!-- Students Details Section -->
+            <section id="students-section" class="content-section">
+                <h1 class="text-3xl font-bold text-gray-400 mb-4">Students Details</h1>
+                <p class="text-lg text-gray-500">View and manage student information here.</p>
+            </section>
+
+            <!-- Add Events Section -->
+            <section id="events-section" class="content-section">
+                <div class="flex justify-between items-center mb-4">
+                    <h1 class="text-3xl font-bold text-gray-400">Events</h1>
+                    <button id="show-events-form-btn" class="bg-blue-500 text-white px-4 py-2 rounded">Add Event</button>
+                </div>
+                <form id="events-form" class="form-section">
+                    <div class="flex flex-col">
+                        <label for="productImage" class="text-sm text-gray-600">Image</label>
+                        <input type="file" id="productImage" name="productImage" accept="image/*" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="productTitle" class="text-sm text-gray-600">Title</label>
+                        <input type="text" id="productTitle" name="productTitle" placeholder="Enter product title" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="productDescription" class="text-sm text-gray-600">Description</label>
+                        <textarea id="productDescription" name="productDescription" rows="4" placeholder="Enter product description" class="px-3 py-2 border resize-none border-gray-300 focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="productPrice" class="text-sm text-gray-600">Price</label>
+                        <input type="number" id="productPrice" name="productPrice" placeholder="Enter product price" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Save Product
+                        </button>
+                    </div>
+                </form>
+                <table id="events-table" class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b border-gray-200">ID</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Event Title</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Date</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Location</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Description</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">1</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Event 1</td>
+                            <td class="py-2 px-4 border-b border-gray-200">2024-07-01</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Location 1</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Description of Event 1</td>
+                            <td class="py-2 px-4 border-b border-gray-200">
+                                <button class="bg-yellow-500 text-white px-2 py-1 rounded">Edit</button>
+                                <button class="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- Additional rows can go here -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Add Exams Section -->
+            <section id="exams-section" class="content-section">
+                <div class="flex justify-between items-center mb-4">
+                    <h1 class="text-3xl font-bold text-gray-400">Exams</h1>
+                    <button id="show-exams-form-btn" class="bg-blue-500 text-white px-4 py-2 rounded">Add Exam</button>
+                </div>
+                <form id="exams-form" class="form-section">
+                    <div class="flex flex-col">
+                        <label for="examImage" class="text-sm text-gray-600">Image</label>
+                        <input type="file" id="examImage" name="examImage" accept="image/*" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="examTitle" class="text-sm text-gray-600">Title</label>
+                        <input type="text" id="examTitle" name="examTitle" placeholder="Enter exam title" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="examDuration" class="text-sm text-gray-600">Duration</label>
+                        <input type="text" id="examDuration" name="examDuration" placeholder="Enter exam duration" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="examMarks" class="text-sm text-gray-600">Marks</label>
+                        <input type="text" id="examMarks" name="examMarks" placeholder="Enter exam marks" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="examDescription" class="text-sm text-gray-600">Description</label>
+                        <textarea id="examDescription" name="examDescription" rows="4" placeholder="Enter exam description" class="px-3 py-2 border resize-none border-gray-300 focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="examTextLink" class="text-sm text-gray-600">Text Link</label>
+                        <input type="text" id="examTextLink" name="examTextLink" placeholder="Enter exam text link" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="examCreatedTime" class="text-sm text-gray-600">Created Time</label>
+                        <input type="text" id="examCreatedTime" name="examCreatedTime" placeholder="Enter exam created time" class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Save Exam
+                        </button>
+                    </div>
+                </form>
+                <table id="exams-table" class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b border-gray-200">ID</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Exam Title</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Duration</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Marks</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Description</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Text Link</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Created Time</th>
+                            <th class="py-2 px-4 border-b border-gray-200">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">1</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Exam 1</td>
+                            <td class="py-2 px-4 border-b border-gray-200">2 hours</td>
+                            <td class="py-2 px-4 border-b border-gray-200">100</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Description of Exam 1</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Link</td>
+                            <td class="py-2 px-4 border-b border-gray-200">2024-07-01</td>
+                            <td class="py-2 px-4 border-b border-gray-200">
+                                <button class="bg-yellow-500 text-white px-2 py-1 rounded">Edit</button>
+                                <button class="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- Additional rows can go here -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <!-- JavaScript for sidebar toggle, content switching, and form toggling -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const sidebar = document.getElementById("sidebar");
+                const toggleBtn = document.getElementById("toggle-btn");
+                const hamburgerIcon = document.getElementById("hamburger-icon");
+                const closeIcon = document.getElementById("close-icon");
+                const dashboardLink = document.getElementById("dashboard-link");
+                const studentsLink = document.getElementById("students-link");
+                const eventsLink = document.getElementById("events-link");
+                const examsLink = document.getElementById("exams-link");
+                const mainContent = document.getElementById("main-content");
+
+                const dashboardSection = document.getElementById("dashboard-section");
+                const studentsSection = document.getElementById("students-section");
+                const eventsSection = document.getElementById("events-section");
+                const examsSection = document.getElementById("exams-section");
+
+                const showEventsFormBtn = document.getElementById("show-events-form-btn");
+                const eventsForm = document.getElementById("events-form");
+                const eventsTable = document.getElementById("events-table");
+                const showExamsFormBtn = document.getElementById("show-exams-form-btn");
+                const examsForm = document.getElementById("exams-form");
+                const examsTable = document.getElementById("exams-table");
+
+                toggleBtn.addEventListener("click", function () {
+                    sidebar.classList.toggle("collapsed");
+                    hamburgerIcon.classList.toggle("hidden");
+                    closeIcon.classList.toggle("hidden");
+                });
+
+                dashboardLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    showSection(dashboardSection);
+                });
+
+                studentsLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    showSection(studentsSection);
+                });
+
+                eventsLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    showSection(eventsSection);
+                });
+
+                examsLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    showSection(examsSection);
+                });
+
+                showEventsFormBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    toggleForm(eventsForm, eventsTable);
+                });
+
+                showExamsFormBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    toggleForm(examsForm, examsTable);
+                });
+
+                function showSection(section) {
+                    const activeClass = "active";
+                    const currentActive = document.querySelector(".content-section." + activeClass);
+                    if (currentActive) {
+                        currentActive.classList.remove(activeClass);
+                    }
+                    section.classList.add(activeClass);
+                }
+
+                function toggleForm(form, table) {
+                    form.classList.toggle("active");
+                    table.classList.toggle("hidden");
+                }
+
+                eventsForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    // Handle form submission logic here
+                    // For demonstration purposes, reset the form and toggle visibility
+                    eventsForm.reset();
+                    toggleForm(eventsForm, eventsTable);
+                });
+
+                examsForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    // Handle form submission logic here
+                    // For demonstration purposes, reset the form and toggle visibility
+                    examsForm.reset();
+                    toggleForm(examsForm, examsTable);
+                });
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Responsive Dashboard - XPLOREHIKE</title>
+		<link
+			rel="stylesheet"
+			href="./main/style.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<style>
+			.sidebar {
+				transition: width 0.3s ease;
+			}
+
+			.sidebar.collapsed {
+				width: 4rem;
+			}
+
+			.sidebar.collapsed .nav-text {
+				display: none;
+			}
+
+			.sidebar.collapsed .nav-icon {
+				margin: auto;
+			}
+
+			.sidebar .nav-item {
+				transition: background-color 0.3s ease;
+			}
+
+			.sidebar .nav-item:hover {
+				background-color: #1d2d44;
+			}
+
+			.sidebar .active {
+				background-color: #1a365d;
+			}
+		</style>
+	</head>
+	<body class="bg-cyan-200">
+		<div class="flex h-screen">
+			<!-- Sidebar -->
+			<div
+				id="sidebar"
+				class="sidebar w-64 bg-blue-800 text-white flex-shrink-0"
+			>
+				<div class="p-4 flex justify-between items-center">
+					<h1
+						id="brand-title"
+						class="text-2xl font-bold text-cyan-300"
+					>
+						XPLOREHIKE
+					</h1>
+					<button
+						id="toggle-btn"
+						class="text-white focus:outline-none"
+					>
+						<svg
+							id="hamburger-icon"
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16m-7 6h7"
+							></path>
+						</svg>
+						<svg
+							id="close-icon"
+							class="w-6 h-6 absolute left-5 hidden"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"
+							></path>
+						</svg>
+					</button>
+				</div>
+				<nav class="mt-4 space-y-2">
+					<a
+						href="#"
+						id="dashboard-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-tachometer-alt nav-icon"></i>
+						<span class="ml-3 nav-text">Dashboard</span>
+					</a>
+					<a
+						href="#"
+						id="students-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-user-graduate nav-icon"></i>
+						<span class="ml-3 nav-text">Students Details</span>
+					</a>
+					<a
+						href="#"
+						id="events-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-calendar-alt nav-icon"></i>
+						<span class="ml-3 nav-text">Opportunity</span>
+					</a>
+					<a
+						href="#"
+						id="exams-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-file-alt nav-icon"></i>
+						<span class="ml-3 nav-text">Exams</span>
+					</a>
+				</nav>
+			</div>
+
+			<!-- Main Content -->
+			<main
+				id="main-content"
+				class="flex-1 p-4"
+			>
+				<!-- Dashboard Content -->
+				<div
+					id="dashboard-content"
+					class="content flex justify-center items-center h-full space-y-4"
+				>
+					<h1 class="text-6xl font-bold text-gray-400">
+						Welcome to the Dashboard
+					</h1>
+				</div>
+
+				<!-- Students Details Content -->
+				<div
+					id="students-content"
+					class="content hidden space-y-4"
+				>
+					<h1 class="text-3xl font-bold text-gray-400 mb-4">
+						Students Details
+					</h1>
+					<p class="text-lg text-gray-500">
+						View and manage student information here.
+					</p>
+				</div>
+
+				<!-- Opportunity Content -->
+				<div
+					id="events-content"
+					class="content hidden space-y-4"
+				>
+					<div
+						class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-md"
+					>
+						<button
+							id="add-event-btn"
+							class="px-6 mt-5 py-2 my-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+						>
+							Add Opportunity
+						</button>
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Manage Opportunities
+						</h1>
+						<div
+							id="events-table"
+							class="mb-4"
+						>
+							<!-- Table structure for Opportunity -->
+							<table
+								class="w-full table-auto border-collapse border border-gray-300"
+							>
+								<thead class="bg-blue-200">
+									<tr>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											ID
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Title
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Description
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Email
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Price
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Action
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Sample row (replace with dynamic data if needed) -->
+									<tr>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											01
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											Sample Title
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											Sample Description
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											abc@gmail.com
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											28<span>$</span>
+										</td>
+										<td
+											class="py-2 px-4 border-b border-gray-200"
+										>
+											<button
+												class="bg-yellow-500 text-white px-2 py-1 rounded"
+											>
+												Edit
+											</button>
+											<button
+												class="bg-red-500 text-white px-2 py-1 rounded"
+											>
+												Delete
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<form
+							id="eventForm"
+							class="space-y-4 mt-5 hidden"
+						>
+							<div class="flex flex-col">
+								<label
+									for="eventImage"
+									class="text-sm text-gray-600"
+									>Image</label
+								>
+								<input
+									type="file"
+									id="eventImage"
+									name="eventImage"
+									accept="image/*"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label
+									for="eventTitle"
+									class="text-sm text-gray-600"
+									>Title</label
+								>
+								<input
+									type="text"
+									id="eventTitle"
+									name="eventTitle"
+									placeholder="Enter title"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label
+									for="eventPrice"
+									class="text-sm text-gray-600"
+									>Email</label
+								>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									placeholder="Enter your email"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+
+							<div class="flex flex-col">
+								<label
+									for="eventPrice"
+									class="text-sm text-gray-600"
+									>Price</label
+								>
+								<input
+									type="number"
+									id="eventPrice"
+									name="eventPrice"
+									placeholder="Enter price"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+
+							<div class="flex flex-col">
+								<label
+									for="eventDescription"
+									class="text-sm text-gray-600"
+									>Description</label
+								>
+								<textarea
+									id="eventDescription"
+									name="eventDescription"
+									rows="4"
+									placeholder="Enter your description"
+									class="px-3 py-2 border resize-none border-gray-300 focus:outline-none focus:border-blue-500 resize-none"
+								></textarea>
+							</div>
+							<div class="flex justify-end">
+								<button
+									type="submit"
+									class="px-6 py-2 mt-5 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+								>
+									Create Opportunity
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- Exams Content -->
+				<div
+					id="exams-content"
+					class="content hidden space-y-4"
+				>
+					<div
+						class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-md"
+					>
+						<button
+							id="add-exam-btn"
+							class="px-6 py-2 my-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+						>
+							Add Exam
+						</button>
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Manage Exams
+						</h1>
+						<div
+							id="exams-table"
+							class="mb-4"
+						>
+							<!-- Table structure for exams -->
+							<table
+								class="w-full table-auto max-w-6xl border-collapse border border-gray-300"
+							>
+								<thead class="bg-blue-200">
+									<tr>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											ID
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Title
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Duration
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Marks
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Description
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Test URL
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Time
+										</th>
+										<th
+											class="border border-gray-300 px-4 py-2"
+										>
+											Action
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Sample row (replace with dynamic data if needed) -->
+									<tr>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											01
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											Title of the exam
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											60 <span>M</span>
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											40
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											Lorem ipsum dolor sit amet.
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											<a href="https://www.google.com"
+												>https://www.google.com</a
+											>
+										</td>
+										<td
+											class="border border-gray-300 px-4 py-2"
+										>
+											10:00 AM
+										</td>
+										<td
+											class="py-2 px-4 border-b border-gray-200"
+										>
+											<button
+												class="bg-yellow-500 text-white px-2 py-1 rounded"
+											>
+												Edit
+											</button>
+											<button
+												class="bg-red-500 text-white px-2 py-1 rounded"
+											>
+												Delete
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<form
+							id="examForm"
+							class="space-y-4 mt-5 hidden"
+						>
+							<div class="flex flex-col">
+								<label
+									for="examImage"
+									class="text-sm text-gray-600"
+									>Image</label
+								>
+								<input
+									type="file"
+									id="examImage"
+									name="examImage"
+									accept="image/*"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label
+									for="examName"
+									class="text-sm text-gray-600"
+									>Title of the Exam</label
+								>
+								<input
+									type="text"
+									id="examName"
+									name="examName"
+									placeholder="Enter exam name"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label
+									for="examDuration"
+									class="text-sm text-gray-600"
+									>Duration</label
+								>
+								<input
+									type="text"
+									id="examDuration"
+									name="examDuration"
+									placeholder="Enter exam duration (e.g., 2 hours)"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label
+									for="examTime"
+									class="text-sm text-gray-600"
+									>Marks</label
+								>
+								<input
+									type="text"
+									id="examTime"
+									placeholder="Enter total marks"
+									name="examTime"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label
+									for="examUrl"
+									class="text-sm text-gray-600"
+									>Test URL</label
+								>
+								<input
+									type="text"
+									id="examUrl"
+									name="examUrl"
+									placeholder="Enter test URL"
+									class="px-3 py-2 border border-gray-300 focus:outline-none focus:border-blue-500"
+								/>
+							</div>
+							<div class="flex flex-col">
+								<label
+									for="eventDescription"
+									class="text-sm text-gray-600"
+									>Description</label
+								>
+								<textarea
+									id="eventDescription"
+									name="eventDescription"
+									rows="4"
+									placeholder="Enter your description"
+									class="px-3 py-2 border resize-none border-gray-300 focus:outline-none focus:border-blue-500 resize-none"
+								></textarea>
+							</div>
+							<div class="flex justify-end">
+								<button
+									type="submit"
+									class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+								>
+									Create Exam
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- JavaScript for sidebar toggle -->
+		<script>
+			const toggleBtn = document.getElementById("toggle-btn");
+			const sidebar = document.getElementById("sidebar");
+			const mainContent = document.getElementById("main-content");
+			const hamburgerIcon = document.getElementById("hamburger-icon");
+			const closeIcon = document.getElementById("close-icon");
+			const brandTitle = document.getElementById("brand-title");
+
+			toggleBtn.addEventListener("click", function () {
+				sidebar.classList.toggle("collapsed");
+				brandTitle.classList.toggle("hidden");
+				if (sidebar.classList.contains("collapsed")) {
+					hamburgerIcon.classList.add("hidden");
+					closeIcon.classList.remove("hidden");
+				} else {
+					hamburgerIcon.classList.remove("hidden");
+					closeIcon.classList.add("hidden");
+				}
+			});
+
+			// Dashboard link click behavior
+			document
+				.getElementById("dashboard-link")
+				.addEventListener("click", function (e) {
+					e.preventDefault();
+					showContent("dashboard-content");
+				});
+
+			// Students Details link click behavior
+			document
+				.getElementById("students-link")
+				.addEventListener("click", function (e) {
+					e.preventDefault();
+					showContent("students-content");
+				});
+
+			// Events link click behavior
+			document
+				.getElementById("events-link")
+				.addEventListener("click", function (e) {
+					e.preventDefault();
+					showContent("events-content");
+				});
+
+			// Exams link click behavior
+			document
+				.getElementById("exams-link")
+				.addEventListener("click", function (e) {
+					e.preventDefault();
+					showContent("exams-content");
+				});
+
+			// Function to show specific content and hide others
+			function showContent(contentId) {
+				const contents = document.querySelectorAll(".content");
+				contents.forEach((content) => {
+					if (content.id === contentId) {
+						content.classList.remove("hidden");
+					} else {
+						content.classList.add("hidden");
+					}
+				});
+			}
+
+			// Toggle between Events table and form
+			const addEventBtn = document.getElementById("add-event-btn");
+			const eventForm = document.getElementById("eventForm");
+			const eventsTable = document.getElementById("events-table");
+
+			addEventBtn.addEventListener("click", function (e) {
+				e.preventDefault();
+				eventForm.classList.toggle("hidden");
+				eventsTable.classList.toggle("hidden");
+
+				if (!eventForm.classList.contains("hidden")) {
+					addEventBtn.textContent = "Cancel"; // Change button text to "Cancel" when form is visible
+				} else {
+					addEventBtn.textContent = "Add Event"; // Change button text back to "Add Event" when form is hidden
+				}
+			});
+
+			eventForm.addEventListener("submit", function (e) {
+				e.preventDefault();
+				// Perform form submission handling here (e.g., validation, AJAX request)
+				alert("Event form submitted!");
+				eventForm.reset();
+				eventForm.classList.add("hidden");
+				eventsTable.classList.remove("hidden");
+				addEventBtn.textContent = "Add Event"; // Reset button text after form submission
+			});
+
+			// Toggle between Exams table and form
+			const addExamBtn = document.getElementById("add-exam-btn");
+			const examForm = document.getElementById("examForm");
+			const examsTable = document.getElementById("exams-table");
+
+			addExamBtn.addEventListener("click", function (e) {
+				e.preventDefault();
+				examForm.classList.toggle("hidden");
+				examsTable.classList.toggle("hidden");
+
+				if (!examForm.classList.contains("hidden")) {
+					addExamBtn.textContent = "Cancel"; // Change button text to "Cancel" when form is visible
+				} else {
+					addExamBtn.textContent = "Add Exam"; // Change button text back to "Add Exam" when form is hidden
+				}
+			});
+
+			examForm.addEventListener("submit", function (e) {
+				e.preventDefault();
+				// Perform form submission handling here (e.g., validation, AJAX request)
+				alert("Exam form submitted!");
+				examForm.reset();
+				examForm.classList.add("hidden");
+				examsTable.classList.remove("hidden");
+				addExamBtn.textContent = "Add Exam"; // Reset button text after form submission
+			});
+		</script>
+	</body>
+</html>
