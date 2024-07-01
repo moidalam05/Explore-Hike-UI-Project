@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Responsive Dashboard - XPLOREHIKE</title>
+		<link
+			rel="stylesheet"
+			href="./main/style.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<style>
+			.sidebar {
+				transition: width 0.3s ease;
+			}
+
+			.sidebar.collapsed {
+				width: 4rem;
+			}
+
+			.sidebar.collapsed .nav-text {
+				display: none;
+			}
+
+			.sidebar.collapsed .nav-icon {
+				margin: auto;
+			}
+
+			.sidebar .nav-item {
+				transition: background-color 0.3s ease;
+			}
+
+			.sidebar .nav-item:hover {
+				background-color: #1d2d44;
+			}
+
+			.sidebar .active {
+				background-color: #1a365d;
+			}
+		</style>
+	</head>
+	<body class="bg-cyan-200">
+		<div class="flex h-screen">
+			<!-- Sidebar -->
+			<div
+				id="sidebar"
+				class="sidebar w-64 bg-blue-800 text-white flex-shrink-0"
+			>
+				<div class="p-4 flex justify-between items-center">
+					<h1
+						id="brand-title"
+						class="text-2xl font-bold text-cyan-300"
+					>
+						XPLOREHIKE
+					</h1>
+					<button
+						id="toggle-btn"
+						class="text-white focus:outline-none"
+					>
+						<svg
+							id="hamburger-icon"
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16m-7 6h7"
+							></path>
+						</svg>
+						<svg
+							id="close-icon"
+							class="w-6 h-6 absolute left-5 hidden"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"
+							></path>
+						</svg>
+					</button>
+				</div>
+				<nav class="mt-4 space-y-2">
+					<a
+						href="#"
+						id="dashboard-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-tachometer-alt nav-icon"></i>
+						<span class="ml-3 nav-text">Dashboard</span>
+					</a>
+					<a
+						href="#"
+						id="student-registered-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-users nav-icon"></i>
+						<span class="ml-3 nav-text"
+							>Student Registered Records</span
+						>
+					</a>
+					<a
+						href="#"
+						id="student-post-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-pen-alt nav-icon"></i>
+						<span class="ml-3 nav-text">Student Post Records</span>
+					</a>
+					<a
+						href="#"
+						id="company-registered-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-building nav-icon"></i>
+						<span class="ml-3 nav-text"
+							>Company Registered Records</span
+						>
+					</a>
+					<a
+						href="#"
+						id="company-exam-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-file-alt nav-icon"></i>
+						<span class="ml-3 nav-text">Company Exam Records</span>
+					</a>
+					<a
+						href="#"
+						id="company-opportunity-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-briefcase nav-icon"></i>
+						<span class="ml-3 nav-text"
+							>Company Opportunity Records</span
+						>
+					</a>
+					<a
+						href="#"
+						id="contact-records-link"
+						class="nav-item flex items-center py-2 px-4 text-sm hover:bg-blue-700"
+					>
+						<i class="fas fa-address-book nav-icon"></i>
+						<span class="ml-3 nav-text">Contact Records</span>
+					</a>
+				</nav>
+			</div>
+
+			<!-- Main Content -->
+			<main
+				id="main-content"
+				class="flex-1 p-4"
+			>
+				<!-- Dashboard Content -->
+				<div
+					id="dashboard-content"
+					class="space-y-4 min-h-screen flex flex-col w-full justify-center items-center p-4"
+				>
+					<h1 class="text-6xl font-bold text-gray-400">
+						Welcome to the Dashboard
+					</h1>
+				</div>
+
+				<!-- Student Registered Records Content -->
+				<div
+					id="student-registered-content"
+					class="hidden space-y-4"
+				>
+					<div class="mx-auto bg-white p-6 rounded-lg shadow-md">
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Students Registered Records
+						</h1>
+						<table
+							class="w-full table-auto border-collapse border border-gray-300"
+						>
+							<thead class="bg-blue-200">
+								<tr>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										ID
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Profile Pic
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Name
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Class
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Email
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										School
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Address
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Achievements
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Interests
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Opportunity
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample row (replace with dynamic data if needed) -->
+								<tr>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										01
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										image link
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										John Doe
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										8th
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										abc@gmail.com
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										XYZ School
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										gurgaon haryana
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										pdf link
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Lorem ipsum dolor sit, amet consectetur
+										adipisicing elit. Dolorum, quisquam.
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Physics
+									</td>
+									<td
+										class="py-2 px-4 border-b border-gray-200"
+									>
+										<button
+											class="bg-yellow-500 text-white px-2 py-1 rounded"
+										>
+											Edit
+										</button>
+										<button
+											class="bg-red-500 text-white px-2 py-1 rounded"
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Student Post Content -->
+				<div
+					id="student-post-content"
+					class="hidden space-y-4"
+				>
+					<div class="mx-auto bg-white p-6 rounded-lg shadow-md">
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Student Post Records
+						</h1>
+						<table
+							class="w-full table-auto border-collapse border border-gray-300"
+						>
+							<thead class="bg-blue-200">
+								<tr>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										ID
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Name
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Designation
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Image URL
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Post Content
+									</th>
+
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample row (replace with dynamic data if needed) -->
+								<tr>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										01
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										John Doe
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Web Developer
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										image link
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Lorem ipsum dolor sit amet.
+									</td>
+									<td
+										class="py-2 px-4 border-b border-gray-200"
+									>
+										<button
+											class="bg-yellow-500 text-white px-2 py-1 rounded"
+										>
+											Edit
+										</button>
+										<button
+											class="bg-red-500 text-white px-2 py-1 rounded"
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Company Registered Records Content -->
+				<div
+					id="company-registered-content"
+					class="hidden space-y-4"
+				>
+					<div class="mx-auto bg-white p-6 rounded-lg shadow-md">
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Company Registered Records
+						</h1>
+						<table
+							class="w-full table-auto border-collapse border border-gray-300"
+						>
+							<thead class="bg-blue-200">
+								<tr>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										ID
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Company Name
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Email
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Website URL
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Registrar Name
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Post
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Filed
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample row (replace with dynamic data if needed) -->
+								<tr>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										01
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										AR Tranders
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										abc@gmail.com
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										website url
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										John Doe
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										International
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										IT
+									</td>
+									<td
+										class="py-2 px-4 border-b border-gray-200"
+									>
+										<button
+											class="bg-yellow-500 text-white px-2 py-1 rounded"
+										>
+											Edit
+										</button>
+										<button
+											class="bg-red-500 text-white px-2 py-1 rounded"
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Company Exam Records Content -->
+				<div
+					id="company-exam-content"
+					class="hidden space-y-4"
+				>
+					<div class="mx-auto bg-white p-6 rounded-lg shadow-md">
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Company Exam Records
+						</h1>
+						<table
+							class="w-full table-auto border-collapse border border-gray-300"
+						>
+							<thead class="bg-blue-200">
+								<tr>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										ID
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Image
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Title
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Duration
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Marks
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Description
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Test URL
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample row (replace with dynamic data if needed) -->
+								<tr>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										01
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										image url
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Title of the exam
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										50<span>M</span>
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										50
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Consequuntur, beatae.
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										test url
+									</td>
+									<td
+										class="py-2 px-4 border-b border-gray-200"
+									>
+										<button
+											class="bg-yellow-500 text-white px-2 py-1 rounded"
+										>
+											Edit
+										</button>
+										<button
+											class="bg-red-500 text-white px-2 py-1 rounded"
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Company Opportunity Records Content -->
+				<div
+					id="company-opportunity-content"
+					class="hidden space-y-4"
+				>
+					<div class="mx-auto bg-white p-6 rounded-lg shadow-md">
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Company Opportunity Records
+						</h1>
+						<table
+							class="w-full table-auto border-collapse border border-gray-300"
+						>
+							<thead class="bg-blue-200">
+								<tr>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										ID
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Image
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Title
+									</th>
+									<th
+										<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Description
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Price
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample row (replace with dynamic data if needed) -->
+								<tr>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										01
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										image url
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Title of the opportunity
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Lorem ipsum dolor sit amet.
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										<span>$</span>100
+									</td>
+									<td
+										class="py-2 px-4 border-b border-gray-200"
+									>
+										<button
+											class="bg-yellow-500 text-white px-2 py-1 rounded"
+										>
+											Edit
+										</button>
+										<button
+											class="bg-red-500 text-white px-2 py-1 rounded"
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Contact Records Content -->
+				<div
+					id="contact-records-content"
+					class="hidden space-y-4"
+				>
+					<div class="mx-auto bg-white p-6 rounded-lg shadow-md">
+						<h1 class="text-2xl font-bold text-gray-800 mb-4">
+							Manage Exams
+						</h1>
+						<table
+							class="w-full table-auto border-collapse border border-gray-300"
+						>
+							<thead class="bg-blue-200">
+								<tr>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										ID
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Name
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Email
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Subject
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Message
+									</th>
+									<th
+										class="border border-gray-300 px-4 py-2"
+									>
+										Action
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Sample row (replace with dynamic data if needed) -->
+								<tr>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										01
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										John Doe
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										abc@gmail.com
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Subject
+									</td>
+									<td
+										class="border border-gray-300 px-4 py-2"
+									>
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Perspiciatis, sint?
+									</td>
+									<td
+										class="py-2 px-4 border-b border-gray-200"
+									>
+										<button
+											class="bg-yellow-500 text-white px-2 py-1 rounded"
+										>
+											Edit
+										</button>
+										<button
+											class="bg-red-500 text-white px-2 py-1 rounded"
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const toggleBtn = document.getElementById("toggle-btn");
+				const sidebar = document.getElementById("sidebar");
+				const hamburgerIcon = document.getElementById("hamburger-icon");
+				const closeIcon = document.getElementById("close-icon");
+				const brandTitle = document.getElementById("brand-title");
+
+				toggleBtn.addEventListener("click", function () {
+					sidebar.classList.toggle("collapsed");
+					brandTitle.classList.toggle("hidden");
+					hamburgerIcon.classList.toggle("hidden");
+					closeIcon.classList.toggle("hidden");
+				});
+
+				const links = document.querySelectorAll(".nav-item");
+				const contents = {
+					"dashboard-link": "dashboard-content",
+					"student-registered-link": "student-registered-content",
+					"student-post-link": "student-post-content",
+					"company-registered-link": "company-registered-content",
+					"company-exam-link": "company-exam-content",
+					"company-opportunity-link": "company-opportunity-content",
+					"contact-records-link": "contact-records-content",
+				};
+
+				links.forEach((link) => {
+					link.addEventListener("click", function (event) {
+						event.preventDefault();
+						links.forEach((item) =>
+							item.classList.remove("active")
+						);
+						link.classList.add("active");
+						const contentId = contents[link.id];
+						for (const key in contents) {
+							const content = document.getElementById(
+								contents[key]
+							);
+							if (contents[key] === contentId) {
+								content.classList.remove("hidden");
+							} else {
+								content.classList.add("hidden");
+							}
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
